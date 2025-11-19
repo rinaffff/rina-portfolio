@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Rina Ben Amar — Portfolio</title>
+
+<!-- Noto Sans JP for body / Japanese compatibility -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+
+<!-- NOTE: Add your licensed display fonts (Canela / Big Caslon / Bodoni 72 / Grenoble) via Adobe Fonts kit or self-hosted @font-face.
+     Example (Adobe): insert the Adobe kit <script> just before closing </head>.
+     This template uses those font names as first choices and gracefully falls back to high-quality serifs. -->
+
+<style>
+  :root{
+    --max-width:1100px;
+    --accent:#0b0b0b;
+    --muted:#686868;
+    --bg:#ffffff;
+    --gutter: clamp(18px, 2.6vw, 36px);
+  }
+
+  html,body{height:100%; margin:0; background:var(--bg); color:var(--accent); font-family:"Noto Sans JP", -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;}
+
+  /* subtle background texture (replace with assets/bg-rina.jpg) */
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background-image: url('assets/bg-rina.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.06;
+    pointer-events:none;
+    z-index:-1;
+  }
+
+  /* Page wrapper, centered */
+  .wrap {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: calc(var(--gutter) * 2) var(--gutter) 120px var(--gutter);
+  }
+
+  /* Top nav minimal (left brand, right nav) */
+  header {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    padding: 12px 0;
+    position:sticky;
+    top:0;
+    background: linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92));
+    z-index:50;
+    backdrop-filter: blur(3px);
+  }
+  .brand {
+    font-family: 'Canela', 'Bodoni 72 Old Style', 'Big Caslon', 'Grenoble Serial', Georgia, serif;
+    font-size:18px;
+    letter-spacing:0.02em;
+  }
+  nav a{
+    color:var(--accent);
+    text-decoration:none;
+    margin-left:18px;
+    font-size:14px;
+  }
+  nav a:hover{text-decoration:underline;}
+
+  /* Hero: perfectly centered heading like your screenshot */
+  .hero {
+    text-align:center;
+    padding: 90px 16px 60px 16px;
+  }
+  .hero h1{
+    margin:0;
+    font-family: 'Canela', 'Bodoni 72 Old Style', 'Big Caslon', Georgia, serif;
+    font-weight:400;
+    font-size: clamp(28px, 6.4vw, 56px); /* large, responsive like screenshot */
+    line-height:1.04;
+    letter-spacing:-0.02em;
+    color:var(--accent);
+  }
+  .hero p.lead{
+    margin:28px auto 0 auto;
+    font-size:16px;
+    color:var(--muted);
+    max-width:900px;
+    line-height:1.8;
+  }
+  .hero p.sub{
+    margin-top:18px;
+    font-size:15px;
+    color:#222;
+    max-width:900px;
+    margin-left:auto;
+    margin-right:auto;
+    line-height:1.7;
+  }
+
+  /* Section header (Work) centered */
+  .section-title {
+    text-align:center;
+    margin-top:56px;
+    margin-bottom:34px;
+    font-family: 'Canela', Georgia, serif;
+    font-size:26px;
+    color:var(--accent);
+    letter-spacing:-0.01em;
+  }
+
+  /* Projects layout: symmetrical, centered flow */
+  .projects {
+    display:flex;
+    flex-direction:column;
+    align-items:center; /* center everything horizontally */
+    gap:64px;
+    padding: 0 6vw;
+  }
+
+  .project {
+    width:100%;
+    max-width:880px; /* keeps a pleasing measure */
+    display:flex;
+    flex-direction:column;
+    align-items:center; /* center title + images */
+    gap:18px;
+    padding: 10px 0 0 0;
+    opacity:0;
+    transform: translateY(12px);
+    transition: opacity .6s ease, transform .6s cubic-bezier(.2,.9,.2,1);
+  }
+  .project.visible { opacity:1; transform:none; }
+
+  .project h3{
+    margin:0;
+    font-family: 'Canela', 'Bodoni 72 Old Style', 'Big Caslon', Georgia, serif;
+    font-size:20px;
+    color:var(--accent);
+    text-align:center;
+    font-weight:400;
+  }
+  .project .meta {
+    margin-top:6px;
+    font-size:13px;
+    color:var(--muted);
+    text-align:center;
+  }
+  .project .desc{
+    margin-top:12px;
+    font-size:15px;
+    color:#222;
+    text-align:center; /* centered copy */
+    line-height:1.75;
+    max-width:72ch;
+  }
+
+  /* Images: large, well-proportioned, centered and symmetrical */
+  .project-images {
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap:14px;
+    width:100%;
+    margin-top:14px;
+  }
+  /* for projects that need one single hero image (like album), allow single column */
+  .project-images.single {
+    grid-template-columns: 1fr;
+  }
+
+  .project-images img {
+    width:100%;
+    height: clamp(220px, 28vw, 420px); /* pleasing aspect ratio */
+    object-fit:cover;
+    border-radius:10px;
+    display:block;
+    box-shadow: 0 8px 20px rgba(10,10,10,0.06);
+    border: 1px solid rgba(0,0,0,0.03);
+    background:#f8f6f2;
+  }
+
+  /* action row */
+  .project-actions{
+    margin-top:12px;
+    display:flex;
+    gap:10px;
+  }
+  .btn{
+    display:inline-block;
+    background:var(--accent);
+    color:#fff;
+    padding:8px 12px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:600;
+    font-size:13px;
+  }
+  .btn.ghost{
+    background:transparent;
+    border:1px solid rgba(0,0,0,0.06);
+    color:var(--accent);
+  }
+
+  /* About and Contact sections centered */
+  section.about, section.contact{
+    margin-top:80px;
+    text-align:center;
+    padding: 0 12vw;
+  }
+  section.about h2, section.contact h2{
+    font-family: 'Canela', Georgia, serif;
+    font-size:20px;
+    margin-bottom:12px;
+  }
+  section.about p, section.contact p{
+    max-width:72ch;
+    margin-left:auto;
+    margin-right:auto;
+    color:#222;
+    font-size:15px;
+    line-height:1.7;
+  }
+
+  /* Footer centered */
+  footer {
+    text-align:center;
+    margin-top:64px;
+    color:var(--muted);
+    padding-bottom:40px;
+    font-size:14px;
+  }
+
+  /* Responsive: single-column images on small screens */
+  @media (max-width:900px) {
+    .project-images { grid-template-columns: 1fr; }
+    .project-images img { height: clamp(180px, 30vw, 360px); }
+    .wrap { padding-left:24px; padding-right:24px; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .project{ transition:none; transform:none; }
+  }
+
+  /* Japanese typography niceties */
+  body { word-break: keep-all; -webkit-font-feature-settings: "palt"; font-kerning: normal; }
+</style>
+</head>
+<body>
+
+  <div class="wrap">
+    <!-- header with top nav -->
+    <header role="banner" aria-label="Top header">
+      <div class="brand">RINA BEN AMAR</div>
+      <nav aria-label="Main navigation">
+        <a href="#work">作品 / Work</a>
+        <a href="#about">自己紹介 / About</a>
+        <a href="#contact">連絡先 / Contact</a>
+      </nav>
+    </header>
+
+    <!-- hero (copy exact screenshot phrase) -->
+    <section class="hero" id="hero" aria-labelledby="hero-title">
+      <h1 id="hero-title">Born in 1998 in Sfax, Tunisia — exploring design as dialogue of emotions and experiences.</h1>
+      <p class="lead">I find inspiration in movement, exchange, and experimentation — shaping every project through a human-centered creative lens.</p>
+      <p class="sub">1998年チュニジア・スファックス生まれ。デザインの潮流や仲間との視点交換を通じて創造力を育て、感情に根ざした実験と試行で表現を追求しています。</p>
+    </section>
+
+    <!-- Work -->
+    <h2 class="section-title" id="work">Work</h2>
+
+    <section class="projects" aria-label="Projects list">
+
+      <!-- Project 1 -->
+      <article class="project" id="p1">
+        <h3>La Maison B. Ammar</h3>
+        <div class="meta">Role: Graphic Designer & Content Manager — 2021/10/04 – 2023/09/29</div>
+        <p class="desc">Rebranded the company (logo, social media, stationery). Then led content production and managed shoots while evolving the brand’s visual storytelling.</p>
+
+        <div class="project-images">
+          <img src="assets/p1-01.jpg" alt="La Maison B. Ammar image 1" onerror="this.style.opacity=0.25">
+          <img src="assets/p1-02.jpg" alt="La Maison B. Ammar image 2" onerror="this.style.opacity=0.25">
+        </div>
+        <div class="project-actions">
+          <a class="btn" href="#">Open (local)</a>
+        </div>
+      </article>
+
+      <!-- Project 2 -->
+      <article class="project" id="p2">
+        <h3>Pupchen</h3>
+        <div class="meta">Role: Creative Direction & Content Management — 2023/08/17 – 2023/10/31</div>
+        <p class="desc">Led content strategy and daily production. Created seasonal editorial universes and social campaigns to support international sales.</p>
+
+        <div class="project-images">
+          <img src="assets/p2-01.jpg" alt="Pupchen image 1" onerror="this.style.opacity=0.25">
+          <img src="assets/p2-02.jpg" alt="Pupchen image 2" onerror="this.style.opacity=0.25">
+        </div>
+        <div class="project-actions"><a class="btn" href="#">Open</a></div>
+      </article>
+
+      <!-- Project 3 -->
+      <article class="project" id="p3">
+        <h3>Lobna — House of Goddesses</h3>
+        <div class="meta">Role: Graphic Designer / Visual Identity — 2023/12 — ongoing</div>
+        <p class="desc">Designed the launch visual identity and ongoing visual materials, including posters and brand illustrations that emphasize feminine mythology and narrative.</p>
+
+        <div class="project-images">
+          <img src="assets/p3-01.jpg" alt="Lobna image 1" onerror="this.style.opacity=0.25">
+          <img src="assets/p3-02.jpg" alt="Lobna image 2" onerror="this.style.opacity=0.25">
+        </div>
+        <div class="project-actions"><a class="btn" href="#">Open</a></div>
+      </article>
+
+      <!-- Project 4 -->
+      <article class="project" id="p4">
+        <h3>Maison de la Lumière</h3>
+        <div class="meta">Role: Graphic Designer & Content Director — 2024/02 – 2025/01</div>
+        <p class="desc">Reworked the entire brand identity (colors, logo, typography, guidelines). Directed and shot photo/video content to align with the refreshed branding.</p>
+
+        <div class="project-images">
+          <img src="assets/p4-01.jpg" alt="Maison de la Lumière image 1" onerror="this.style.opacity=0.25">
+          <img src="assets/p4-02.jpg" alt="Maison de la Lumière image 2" onerror="this.style.opacity=0.25">
+        </div>
+        <div class="project-actions"><a class="btn" href="#">Open</a></div>
+      </article>
+
+      <!-- Project 5 -->
+      <article class="project" id="p5">
+        <h3>Selma Feriani Gallery</h3>
+        <div class="meta">Role: Graphic Design & Communication Support — 2024/08 — ongoing</div>
+        <p class="desc">Produce exhibition visuals, press materials and digital content for shows and fairs. Work adapts gallery communication for international audiences while keeping a minimal, art-forward layout.</p>
+
+        <div class="project-images">
+          <img src="assets/p5-01.jpg" alt="Selma Feriani Gallery image 1" onerror="this.style.opacity=0.25">
+          <img src="assets/p5-02.jpg" alt="Selma Feriani Gallery image 2" onerror="this.style.opacity=0.25">
+        </div>
+        <div class="project-actions"><a class="btn" href="#">Open</a></div>
+      </article>
+
+      <!-- Project 6 -->
+      <article class="project" id="p6">
+        <h3>Buck N Brew — Coffee Shop</h3>
+        <div class="meta">Role: Graphic Designer & 3D Interior Designer — 2024/07 (pre-launch)</div>
+        <p class="desc">Built the full brand identity from scratch (logo, menu, signage, packaging). Designed the coffee shop’s interior space in 3D, merging brand aesthetic with spatial storytelling.</p>
+
+        <div class="project-images">
+          <img src="assets/p6-01.jpg" alt="Buck N Brew image 1" onerror="this.style.opacity=0.25">
+          <img src="assets/p6-02.jpg" alt="Buck N Brew image 2" onerror="this.style.opacity=0.25">
+        </div>
+        <div class="project-actions"><a class="btn" href="#">Open</a></div>
+      </article>
+
+      <!-- Project 7 -->
+      <article class="project" id="p7">
+        <h3>Layla — Traditional Tunisian Delicacies</h3>
+        <div class="meta">Role: Art Direction & Designer — 2024</div>
+        <p class="desc">Developed brand positioning and packaging concepts linking Tunisian tradition with modern minimal visual language for European markets.</p>
+
+        <div class="project-images">
+          <img src="assets/p7-01.jpg" alt="Layla image 1" onerror="this.style.opacity=0.25">
+          <img src="assets/p7-02.jpg" alt="Layla image 2" onerror="this.style.opacity=0.25">
+        </div>
+        <div class="project-actions"><a class="btn" href="#">Open</a></div>
+      </article>
+
+      <!-- Project 8 -->
+      <article class="project" id="p8">
+        <h3>Fruit Cart (personal project)</h3>
+        <div class="meta">Role: Designer (product + visual identity) — 2024</div>
+        <p class="desc">Designed an assemblable/removable fruit cart (2.50 m × 1.20 m × 0.60 m) with a focus on aesthetics, modularity and storytelling through surface graphics.</p>
+
+        <div class="project-images">
+          <img src="assets/p8-01.jpg" alt="Fruit Cart image 1" onerror="this.style.opacity=0.25">
+          <img src="assets/p8-02.jpg" alt="Fruit Cart image 2" onerror="this.style.opacity=0.25">
+        </div>
+        <div class="project-actions"><a class="btn" href="#">Open</a></div>
+      </article>
+
+      <!-- Project 9 -->
+      <article class="project" id="p9">
+        <h3>Southtown Rage — Rap Album (Fijo)</h3>
+        <div class="meta">Role: Art Director & Visual Designer — Early December 2024</div>
+        <p class="desc">Designed album visuals and led art direction for 3 music videos; served as production director during shoots. I handled stills, promotional posters, and the visual system around the release.</p>
+
+        <div class="project-images single">
+          <img src="assets/p9-hero.jpg" alt="Southtown Rage main poster / cover" onerror="this.style.opacity=0.25">
+        </div>
+
+        <div class="project-images">
+          <img src="assets/p9-01.jpg" alt="Southtown Rage still 1" onerror="this.style.opacity=0.25">
+          <img src="assets/p9-02.jpg" alt="Southtown Rage still 2" onerror="this.style.opacity=0.25">
+        </div>
+
+        <div class="project-actions">
+          <a class="btn" href="#">Open Assets</a>
+          <a class="btn ghost" href="https://www.youtube.com/watch?v=pDxKClNKK0w" target="_blank" rel="noopener">Watch main video</a>
+        </div>
+      </article>
+
+    </section> <!-- end projects -->
+
+    <!-- About -->
+    <section id="about" class="about" aria-labelledby="about-title">
+      <h2 id="about-title">About / 自己紹介</h2>
+      <p>Born in 1998 in Sfax, Tunisia. I explore design movements and exchange perspectives with peers to keep my creativity flowing. I pursue expressive design through emotional research and iterative experimentation.</p>
+      <p>1998年チュニジア・スファックス生まれ。デザインの潮流や仲間との視点交換を通じて創造力を育て、感情に根ざした実験と試行を通して表現を追求しています。</p>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact" aria-labelledby="contact-title">
+      <h2 id="contact-title">Contact / 連絡先</h2>
+      <p>Email: <a href="mailto:your@email.com">your@email.com</a> — Instagram: <a href="https://instagram.com/" target="_blank" rel="noopener">instagram.com/yourhandle</a></p>
+      <p>Replace the placeholders above with your real contact details. For local previews, put images in the `assets/` folder next to this file.</p>
+    </section>
+
+    <footer>
+      © <strong>Rina Ben Amar</strong> — Graphic Designer & Art Director
+    </footer>
+
+  </div> <!-- wrap -->
+
+<script>
+  // reveal animation
+  document.addEventListener('DOMContentLoaded', function () {
+    const projects = document.querySelectorAll('.project');
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+    }, {threshold: 0.12});
+    projects.forEach(p => obs.observe(p));
+  });
+
+  // smooth anchors offset for sticky header
+  (function(){
+    const headerHeight = 72;
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', function(e){
+        const targetId = this.getAttribute('href').slice(1);
+        const target = document.getElementById(targetId);
+        if(target){ e.preventDefault(); const y = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 10; window.scrollTo({top:y, behavior:'smooth'}); history.replaceState(null,'','#'+targetId); }
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
