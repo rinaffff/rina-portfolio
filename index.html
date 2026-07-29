@@ -269,7 +269,7 @@
       text-shadow: 0 1px 4px rgba(0,0,0,0.4);
     }
 
-    /* ── CONTACT (ENRICHED OH MY GOAL STYLE) ── */
+    /* ── CONTACT (OH MY GOAL / LUXURY HYBRID) ── */
     #contact { 
       background: linear-gradient(135deg, var(--plum), var(--espresso)); 
       padding: 8rem 3.5rem; 
@@ -678,13 +678,13 @@
         <div class="gi-stack-row">
           <div class="gi-box"><img class="gi" src="https://rinaffff.github.io/rina-portfoliov1/assets/BB-4.jpg" alt="Buck n Brew 4" loading="lazy" /></div>
           <div class="gi-box"><img class="gi" src="https://rinaffff.github.io/rina-portfoliov1/assets/BB-5.jpg" alt="Buck n Brew 5" loading="lazy" /></div>
-          <div class="gi-box"><img class="gif" src="https://rinaffff.github.io/rina-portfoliov1/assets/BB-6.jpg" alt="Buck n Brew 6" loading="lazy" /></div>
+          <div class="gi-box"><img class="gi" src="https://rinaffff.github.io/rina-portfoliov1/assets/BB-6.jpg" alt="Buck n Brew 6" loading="lazy" /></div>
         </div>
       </div>
     </article>
   </section>
 
-  <!-- CONTACT (ENRICHED OH MY GOAL STYLE) -->
+  <!-- CONTACT -->
   <section id="contact">
     <div class="contact-inner">
       <div class="contact-left">
@@ -771,7 +771,7 @@
     document.querySelectorAll('.project').forEach(el => io1.observe(el));
 
     /* scroll reveal generic */
-    const io2 = new IntersectionObserveres => {
+    const io2 = new IntersectionObserver(es => {
       es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io2.unobserve(e.target); } });
     }, { threshold: .1 });
     document.querySelectorAll('.reveal').forEach(el => io2.observe(el));
