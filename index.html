@@ -1,255 +1,565 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rina Benamar — Graphic Designer & Art Director</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,300;0,6..96,400;0,6..96,500;1,6..96,300;1,6..96,400;1,6..96,500&family=IM+Fell+English:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400&family=Noto+Serif+JP:wght@200;300;400&family=Caveat:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio — Senior Art Director & Graphic Designer</title>
+  
+  <!-- Fonts Google Pro (Typography V2) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,300..500;1,6..96,300..500&family=Caveat:wght@400..500&family=DM+Sans:opsz,wght@9..40,300;9..40,400&family=IM+Fell+English:ital@0;1&family=Noto+Serif+JP:wght@200;300;400&display=swap" rel="stylesheet">
+
+  <style>
+    /* VARIABLES DE DESIGN V1 + SYSTEME TYPO ET CONTACT V2 */
+    :root {
+      --bg-color: #fcfcfc;
+      --text-color: #111111;
+      --accent-color: #555555;
+      --line-color: #e5e5e5;
+      
+      /* Palette & Typographies V2 Let's Connect & Tags */
+      --plum: #5B1E32;
+      --espresso: #351E28;
+      --peach: #FFF9ED;
+      --mint: #B7E1DA;
+      --pink: #CB438B;
+      --f-disp: 'Bodoni Moda', Georgia, serif;
+      --f-ser: 'IM Fell English', Georgia, serif;
+      --f-hand: 'Caveat', cursive;
+      --f-jp: 'Noto Serif JP', serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* NAVIGATION V1 */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem 3.5rem;
+      border-bottom: 1px solid var(--line-color);
+    }
+
+    .logo {
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+      color: var(--text-color);
+      text-transform: uppercase;
+      font-size: 0.9rem;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-color);
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      transition: opacity 0.3s;
+    }
+
+    .nav-links a:hover {
+      opacity: 0.5;
+    }
+
+    /* HERO V1 */
+    #hero {
+      padding: 8rem 3.5rem 6rem;
+    }
+
+    .hero-h1 {
+      font-size: clamp(2.5rem, 6vw, 5.5rem);
+      font-weight: 400;
+      line-height: 1.05;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-tagline {
+      font-size: clamp(1rem, 1.8vw, 1.4rem);
+      color: var(--accent-color);
+      max-width: 680px;
+      font-weight: 300;
+    }
+
+    /* WORK SECTION V1 */
+    .work-header {
+      padding: 3rem 3.5rem 1rem;
+    }
+
+    .work-title {
+      font-size: 0.8rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent-color);
+    }
+
+    .project {
+      display: grid;
+      grid-template-columns: 80px 1fr 1fr;
+      gap: 3rem;
+      padding: 4rem 3.5rem;
+      border-top: 1px solid var(--line-color);
+      align-items: start;
+    }
+
+    .proj-num {
+      font-family: var(--f-jp);
+      font-size: 0.85rem;
+      color: var(--accent-color);
+      opacity: 0.6;
+    }
+
+    .proj-client {
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent-color);
+      margin-bottom: 0.4rem;
+    }
+
+    .proj-name {
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-weight: 400;
+      line-height: 1.1;
+    }
+
+    /* TAGS DE COMPÉTENCES ET RÔLES (Style V2) */
+    .proj-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin: 1rem 0 1.5rem 0;
+    }
+
+    .tag {
+      font-size: 0.58rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      border: 1px solid rgba(17, 17, 17, 0.18);
+      padding: 0.28rem 0.65rem;
+      color: #333333;
+      border-radius: 2px;
+      background: rgba(0,0,0,0.015);
+    }
+
+    .proj-brief {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: #333333;
+      margin-bottom: 1.2rem;
+    }
+
+    .proj-concept {
+      font-size: 0.85rem;
+      color: var(--accent-color);
+      line-height: 1.7;
+      padding-left: 0.8rem;
+      border-left: 2px solid var(--text-color);
+    }
+
+    /* GALLERIES & MEDIA OPTIMIZATION */
+    .gallery img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    .vid-grid {
+      width: 100%;
+    }
+
+    .vid-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: #000;
+      overflow: hidden;
+    }
+
+    .vid-wrap video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* SECTION LET'S CONNECT (Integration Visuelle V2 Intégrale) */
+    #contact { 
+      background: linear-gradient(135deg, var(--plum), var(--espresso)); 
+      padding: 9rem 3.5rem; 
+      position: relative; 
+      overflow: hidden; 
+      color: var(--peach);
+    }
+
+    #contact::before { 
+      content: 'ご連絡'; 
+      position: absolute; 
+      right: 1rem; 
+      bottom: -2rem; 
+      font-family: var(--f-jp); 
+      font-size: 18rem; 
+      font-weight: 200; 
+      color: rgba(255,240,210,.025); 
+      pointer-events: none; 
+      line-height: 1; 
+    }
+
+    .contact-inner { 
+      position: relative; 
+      display: grid; 
+      grid-template-columns: 1fr 1fr; 
+      gap: 5rem; 
+      align-items: end; 
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .contact-h2 { 
+      font-family: var(--f-disp); 
+      font-size: clamp(3.5rem, 8vw, 8rem); 
+      font-weight: 400; 
+      font-style: italic; 
+      line-height: .88; 
+      color: var(--peach); 
+    }
+
+    .contact-h2 em { 
+      color: var(--pink); 
+      font-style: normal; 
+    }
+
+    .contact-h2 span { 
+      display: block; 
+      font-family: var(--f-hand); 
+      font-style: normal; 
+      font-size: clamp(1.4rem, 3.2vw, 2.8rem); 
+      color: var(--mint); 
+      margin-top: .6rem; 
+    }
+
+    .contact-body { 
+      display: flex; 
+      flex-direction: column; 
+      gap: 1.6rem; 
+    }
+
+    .contact-intro { 
+      font-family: var(--f-ser); 
+      font-size: .95rem; 
+      font-style: italic; 
+      color: rgba(255,240,210,.68); 
+      line-height: 1.9; 
+    }
+
+    .contact-langs { 
+      display: flex; 
+      gap: .6rem; 
+      flex-wrap: wrap; 
+    }
+
+    .lang-tag { 
+      font-size: .56rem; 
+      letter-spacing: .18em; 
+      text-transform: uppercase; 
+      border: 1px solid rgba(255,240,210,.2); 
+      padding: .3rem .75rem; 
+      color: rgba(255,240,210,.4); 
+    }
+
+    .lang-tag.on { 
+      border-color: var(--mint); 
+      color: var(--mint); 
+    }
+
+    .contact-jp { 
+      font-family: var(--f-jp); 
+      font-size: .75rem; 
+      font-weight: 200; 
+      letter-spacing: .32em; 
+      color: var(--mint); 
+      opacity: .65; 
+    }
+
+    .contact-mail { 
+      display: inline-block; 
+      font-family: var(--f-disp); 
+      font-size: clamp(1.1rem, 2vw, 1.5rem); 
+      font-weight: 400; 
+      color: var(--peach); 
+      text-decoration: none; 
+      border-bottom: 1px solid rgba(255,240,210,.3); 
+      padding-bottom: .22rem; 
+      transition: color .3s, border-color .3s; 
+    }
+
+    .contact-mail:hover { 
+      color: var(--pink); 
+      border-color: var(--pink); 
+    }
+
+    /* FOOTER V1 */
+    footer {
+      padding: 2rem 3.5rem;
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid var(--line-color);
+      font-size: 0.75rem;
+      color: var(--accent-color);
+    }
+
+    /* RESPONSIVE DESIGN */
+    @media (max-width: 900px) {
+      nav, #hero, .work-header, .project, #contact, footer {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+      .project {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .proj-num {
+        display: none;
+      }
+      .contact-inner {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Custom Cursor -->
-    <div id="cursor"></div>
-    <div id="cursor-ring"></div>
 
-    <!-- Navigation -->
-    <nav>
-        <a href="#" class="logo">
-            <span class="logo-en">Rina Benamar</span>
-            <span class="logo-jp">リナ・ベナマー</span>
-        </a>
-        <ul class="nav-links">
-            <li><a href="#work">Work</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+  <!-- Navigation V1 -->
+  <nav>
+    <a href="#" class="logo">Portfolio</a>
+    <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-    <!-- Hero Section -->
-    <section id="hero">
-        <div class="hero-img-bg"></div>
-        <div class="hero-bg-jp">ポートフォリオ</div>
-        <div class="hero-rule"></div>
-        <div class="hero-center">
-            <p class="hero-eyebrow">Creative Director & Graphic Designer</p>
-            <h1 class="hero-h1">Rina <span class="it">Benamar</span></h1>
-            <div class="hero-sub">
-                <p class="hero-tagline">A multidisciplinary creative with a passion for crafting compelling visual narratives and impactful brand experiences.</p>
-                <p class="hero-jp-tag">クリエイティブディレクター</p>
-            </div>
-        </div>
-        <div class="hero-foot">
-            <div class="hero-foot-l">
-                <p class="hero-location">Paris, France / Tokyo, Japan</p>
-                <p class="hero-avail">Available for projects</p>
-            </div>
-            <div class="hero-scroll">
-                <span>Scroll to explore</span>
-                <span class="scroll-line"></span>
-            </div>
-        </div>
-    </section>
+  <!-- Hero Section V1 -->
+  <section id="hero">
+    <h1 class="hero-h1">Senior Art Director &amp; Graphic Designer</h1>
+    <p class="hero-tagline">Building visual identity systems, spatial concepts, and editorial design.</p>
+  </section>
 
-    <!-- Statement Band -->
-    <section class="statement-band">
-        <div class="statement-inner">
-            <p class="statement-text">"I believe in the power of <span class="em">design to transcend boundaries</span> and create meaningful connections."</p>
-            <p class="statement-jp">デザインの力</p>
-        </div>
-    </section>
+  <!-- Work Section V1 -->
+  <section id="work">
+    <div class="work-header">
+      <h2 class="work-title">Selected Works</h2>
+    </div>
 
-    <!-- Marquee -->
-    <section class="marquee-wrap">
-        <div class="marquee-track">
-            <div class="marquee-item">
-                <span class="m-en">Art Direction</span>
-                <span class="m-dot"></span>
-                <span class="m-jp">アートディレクション</span>
-            </div>
-            <div class="marquee-item">
-                <span class="m-en">Graphic Design</span>
-                <span class="m-dot"></span>
-                <span class="m-jp">グラフィックデザイン</span>
-            </div>
-            <div class="marquee-item">
-                <span class="m-en">Branding</span>
-                <span class="m-dot"></span>
-                <span class="m-jp">ブランディング</span>
-            </div>
-            <div class="marquee-item">
-                <span class="m-en">Visual Merchandising</span>
-                <span class="m-dot"></span>
-                <span class="m-jp">ビジュアルマーチャンダイジング</span>
-            </div>
-            <div class="marquee-item">
-                <span class="m-en">Creative Strategy</span>
-                <span class="m-dot"></span>
-                <span class="m-jp">クリエイティブ戦略</span>
-            </div>
-            <div class="marquee-item">
-                <span class="m-en">Editorial Design</span>
-                <span class="m-dot"></span>
-                <span class="m-jp">エディトリアルデザイン</span>
-            </div>
-            <div class="marquee-item">
-                <span class="m-en">Video Direction</span>
-                <span class="m-dot"></span>
-                <span class="m-jp">ビデオディレクション</span>
-            </div>
-            <!-- Repeat items for infinite scroll effect -->
-        </div>
-    </section>
-
-    <!-- Work Section -->
-    <section id="work">
-        <div class="work-header">
-            <h2 class="work-title">Selected <span class="span">Works</span></h2>
-            <!-- Optional: filter/category links here -->
+    <!-- Project 1: pupchen (Orthographe vérifiée) -->
+    <article class="project">
+      <div class="proj-num">01/</div>
+      <div>
+        <p class="proj-client">Visual Strategy &amp; Production</p>
+        <h3 class="proj-name">pupchen</h3>
+        
+        <!-- TAGS ROLES & COMPETENCES V2 -->
+        <div class="proj-tags">
+          <span class="tag">Creative Direction</span>
+          <span class="tag">Brand Strategy</span>
+          <span class="tag">Shoot Production</span>
+          <span class="tag">Social Marketing</span>
         </div>
 
-        <!-- Project 1: Selma Feriani Gallery -->
-        <div class="project reveal">
-            <p class="proj-num">01</p>
-            <div>
-                <p class="proj-client">Selma Feriani Gallery</p>
-                <h3 class="proj-name">Minimalist Exhibition Visuals</h3>
-                <p class="proj-name-jp">ミニマリスト展覧会ビジュアル</p>
-                <div class="proj-tags">
-                    <span class="tag">Art Direction</span>
-                    <span class="tag">Graphic Design</span>
-                    <span class="tag">Editorial</span>
-                </div>
-                <p class="proj-brief">Crafted sophisticated visual assets for a leading art gallery, maintaining their distinct minimalist aesthetic.</p>
-                <p class="proj-concept">Developed exhibition pamphlets and a 350-page artist monograph, ensuring visual consistency post-designer transition.</p>
-                <p class="proj-role">Role: Visual Designer</p>
-            </div>
-            <div class="gallery-container">
-                <div class="gi-box"><img src="https://rinaffff.github.io/rina-portfoliov1/assets/selma_feriani_1.jpg" alt="Selma Feriani Project Image 1" class="gi"></div>
-                <div class="gi-box"><img src="https://rinaffff.github.io/rina-portfoliov1/assets/selma_feriani_2.jpg" alt="Selma Feriani Project Image 2" class="gi"></div>
-            </div>
+        <p class="proj-brief">Full oversight of the brand's visual communication strategy. Executed end-to-end campaign direction, photo/video shoot scheduling, and content rollout.</p>
+        <p class="proj-concept"><strong>Key Impact:</strong> Established a cohesive brand narrative and content strategy, orchestrating all post-strategy execution and marketing presence.</p>
+      </div>
+      <div class="vid-grid">
+        <div class="vid-wrap">
+          <video autoplay loop muted playsinline preload="auto">
+            <source src="assets/pupchen.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </article>
+
+    <!-- Project 2: Buck n Brew -->
+    <article class="project">
+      <div class="proj-num">02/</div>
+      <div>
+        <p class="proj-client">3D Interior &amp; Visual Identity</p>
+        <h3 class="proj-name">Buck n Brew</h3>
+
+        <!-- TAGS ROLES & COMPETENCES V2 -->
+        <div class="proj-tags">
+          <span class="tag">Logo Design</span>
+          <span class="tag">Color System</span>
+          <span class="tag">3D Spatial Concept</span>
+          <span class="tag">Brand Strategy</span>
         </div>
 
-        <!-- Project 2: House of Goddesses -->
-        <div class="project reveal">
-            <p class="proj-num">02</p>
-            <div>
-                <p class="proj-client">House of Goddesses</p>
-                <h3 class="proj-name">Luxury Bridal Beauty Branding</h3>
-                <p class="proj-name-jp">高級ブライダルビューティーブランディング</p>
-                <div class="proj-tags">
-                    <span class="tag">Brand Identity</span>
-                    <span class="tag">Art Direction</span>
-                    <span class="tag">Interior Design Collaboration</span>
-                </div>
-                <p class="proj-brief">Developed a comprehensive brand identity for a new luxury bridal beauty and makeup center.</p>
-                <p class="proj-concept">From refining artistic direction with the CEO to collaborating on interior design and creating social media visuals, ensured a cohesive brand experience.</p>
-                <p class="proj-role">Role: Art Director & Designer</p>
-            </div>
-            <div class="gallery-container">
-                <div class="gi-box"><img src="https://rinaffff.github.io/rina-portfoliov1/assets/house_of_goddesses_1.jpg" alt="House of Goddesses Project Image 1" class="gi"></div>
-                <div class="gi-box"><img src="https://rinaffff.github.io/rina-portfoliov1/assets/house_of_goddesses_2.jpg" alt="House of Goddesses Project Image 2" class="gi"></div>
-            </div>
+        <p class="proj-brief">Designed the complete brand universe from logo to color palette. Developed a full 3D spatial concept in SketchUp to visualize a warm, British book-nook meets Mediterranean home warmth aesthetic.</p>
+        <p class="proj-concept"><strong>Key Impact:</strong> Bridged traditional British charm with Mediterranean hospitality into a cohesive visual identity and spatial experience.</p>
+      </div>
+      <div class="gallery">
+        <img src="assets/buck-n-brew.jpg" alt="Buck n Brew 3D Concept" loading="lazy">
+      </div>
+    </article>
+
+    <!-- Project 3: Southtown -->
+    <article class="project">
+      <div class="proj-num">03/</div>
+      <div>
+        <p class="proj-client">Music Video &amp; World-Building</p>
+        <h3 class="proj-name">Southtown</h3>
+
+        <!-- TAGS ROLES & COMPETENCES V2 -->
+        <div class="proj-tags">
+          <span class="tag">Creative Producing</span>
+          <span class="tag">Shot Lists &amp; Call Sheets</span>
+          <span class="tag">On-Set Art Direction</span>
+          <span class="tag">Post-Production</span>
         </div>
 
-        <!-- Project 3: Southtown Rage -->
-        <div class="project reveal">
-            <p class="proj-num">03</p>
-            <div>
-                <p class="proj-client">Southtown Rage</p>
-                <h3 class="proj-name">Utopian Music Video Direction</h3>
-                <p class="proj-name-jp">ユートピア音楽ビデオディレクション</p>
-                <div class="proj-tags">
-                    <span class="tag">Art Direction</span>
-                    <span class="tag">Video Direction</span>
-                    <span class="tag">Post-Production</span>
-                </div>
-                <p class="proj-brief">Led the artistic vision and execution for a music video series, creating a distinctive utopian universe.</p>
-                <p class="proj-concept">Directed location scouting, set design, costume, and visual flow for three video clips, overseeing post-production. Achieved significant viewer engagement.</p>
-                <p class="proj-role">Role: Creative Director & Director</p>
-            </div>
-            <div class="vid-grid">
-                <div class="vid-wrap">
-                    <video src="https://rinaffff.github.io/rina-portfoliov1/assets/southtown_rage_1.mp4" autoplay loop muted playsinline></video>
-                    <span class="vid-label">Clip 1</span>
-                </div>
-                <div class="vid-wrap">
-                    <video src="https://rinaffff.github.io/rina-portfoliov1/assets/southtown_rage_2.mp4" autoplay loop muted playsinline></video>
-                    <span class="vid-label">Clip 2</span>
-                </div>
-                <div class="vid-wrap">
-                    <video src="https://rinaffff.github.io/rina-portfoliov1/assets/southtown_rage_3.mp4" autoplay loop muted playsinline></video>
-                    <span class="vid-label">Clip 3</span>
-                </div>
-            </div>
+        <p class="proj-brief">Built a complete graphic and visual universe for an album release. Handled production prep, daily shot schedules, videographer direction, and post-production supervision across 3 music video shoots.</p>
+        <p class="proj-concept"><strong>Key Impact:</strong> Seamlessly aligned cinematic visuals with musical narrative through strict on-set execution and post-production oversight.</p>
+      </div>
+      <div class="vid-grid">
+        <div class="vid-wrap">
+          <video autoplay loop muted playsinline preload="auto">
+            <source src="assets/southtown.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </article>
+
+    <!-- Project 4: House of Goddesses -->
+    <article class="project">
+      <div class="proj-num">04/</div>
+      <div>
+        <p class="proj-client">Brand Identity Framework</p>
+        <h3 class="proj-name">House of Goddesses</h3>
+
+        <!-- TAGS ROLES & COMPETENCES V2 -->
+        <div class="proj-tags">
+          <span class="tag">Brand Guidelines</span>
+          <span class="tag">Launch Strategy</span>
+          <span class="tag">Campaign Direction</span>
+          <span class="tag">Graphic Collateral</span>
         </div>
 
-        <!-- Project 4: Buck n' Brew -->
-        <div class="project reveal">
-            <p class="proj-num">04</p>
-            <div>
-                <p class="proj-client">Buck n' Brew</p>
-                <h3 class="proj-name">Warm-Intellectual Coffee Shop Branding</h3>
-                <p class="proj-name-jp">温かく知的なコーヒーショップブランディング</p>
-                <div class="proj-tags">
-                    <span class="tag">Brand Identity</span>
-                    <span class="tag">Spatial Design</span>
-                    <span class="tag">Graphic Design</span>
-                </div>
-                <p class="proj-brief">Designed a unique brand identity for a coffee shop, blending warm aesthetics with intellectual depth.</p>
-                <p class="proj-concept">Developed a visual universe where an English bookshop meets Mediterranean warmth, influencing physical layout and typography to ensure brand DNA consistency.</p>
-                <p class="proj-role">Role: Visual Identity & Spatial Designer</p>
-            </div>
-            <div class="gallery-container">
-                <div class="gi-box"><img src="https://rinaffff.github.io/rina-portfoliov1/assets/buck_n_brew_1.jpg" alt="Buck n' Brew Project Image 1" class="gi"></div>
-                <div class="gi-box"><img src="https://rinaffff.github.io/rina-portfoliov1/assets/buck_n_brew_2.jpg" alt="Buck n' Brew Project Image 2" class="gi"></div>
-            </div>
+        <p class="proj-brief">Engineered the official visual identity framework (charte graphique) and campaign launch strategy. Continued asset direction for video productions and bespoke graphic collateral.</p>
+        <p class="proj-concept"><strong>Key Impact:</strong> Formulated an extensible brand guideline system ensuring consistent visual authority across digital and physical media.</p>
+      </div>
+      <div class="gallery">
+        <img src="assets/house-of-goddesses.jpg" alt="House of Goddesses Branding" loading="lazy">
+      </div>
+    </article>
+
+    <!-- Project 5: Selma Feriani Gallery -->
+    <article class="project">
+      <div class="proj-num">05/</div>
+      <div>
+        <p class="proj-client">Editorial Design &amp; Fine Art Curation</p>
+        <h3 class="proj-name">Selma Feriani Gallery</h3>
+
+        <!-- TAGS ROLES & COMPETENCES V2 -->
+        <div class="proj-tags">
+          <span class="tag">400+ Page Monograph</span>
+          <span class="tag">Grid Systems</span>
+          <span class="tag">Exhibition Pamphlets</span>
+          <span class="tag">Typography</span>
         </div>
 
-    </section>
+        <p class="proj-brief">Designed exhibition pamphlets and an extensive 400+ page fine art artist monograph showcasing intricate tapestry artworks. Managed complex text/image layout systems.</p>
+        <p class="proj-concept"><strong>Key Impact:</strong> Applied high-end editorial grid systems and typography to elevate contemporary textile art for international gallery curation.</p>
+      </div>
+      <div class="gallery">
+        <img src="assets/selma-feriani.jpg" alt="Selma Feriani Gallery Monograph" loading="lazy">
+      </div>
+    </article>
+  </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="contact-inner">
-            <div class="contact-left">
-                <h2 class="contact-h2">Let's <span class="em">Connect</span><span>お問い合わせ</span></h2>
-                <p class="contact-intro">I am always open to new collaborations and exciting projects. Feel free to reach out!</p>
-                <div class="contact-langs">
-                    <span class="lang-tag on">English</span>
-                    <span class="lang-tag on">French</span>
-                    <span class="lang-tag">Japanese (A2)</span>
-                </div>
-                <p class="contact-jp">お気軽にお問い合わせください</p>
-            </div>
-            <form class="contact-form">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                </div>
-                <div class="form-group full">
-                    <label for="subject">Subject</label>
-                    <input type="text" id="subject" name="subject">
-                </div>
-                <div class="form-group full">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" required></textarea>
-                </div>
-                <button type="submit" class="submit-btn">Send Message</button>
-            </form>
+  <!-- SECTION LET'S CONNECT (Design V2 Intégral avec Arabe & Liens Clean) -->
+  <section id="contact">
+    <div class="contact-inner">
+      <div>
+        <h2 class="contact-h2">
+          Let's <em>connect.</em>
+          <span>ご連絡をお待ちしております</span>
+        </h2>
+      </div>
+      <div class="contact-body">
+        <p class="contact-intro">
+          Currently based in Europe — Open to remote work &amp; full relocation to Japan. Always interested in collaborative art direction, 3D spatial design, and visual identity projects.
+        </p>
+        
+        <div class="contact-langs">
+          <span class="lang-tag on">Arabic — Native</span>
+          <span class="lang-tag on">French — Native / Bilingual</span>
+          <span class="lang-tag on">English — Full Professional</span>
+          <span class="lang-tag">Japanese — Active Learning (N5/N4)</span>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer>
-        <p class="f-copy">&copy; 2026 Rina Benamar. All rights reserved.</p>
-        <p class="f-jp">リナ・ベナマー</p>
-    </footer>
+        <p class="contact-jp">一緒にお仕事ができることを楽しみにしています。</p>
 
-    <script src="script.js"></script>
+        <div>
+          <a href="mailto:your-email@example.com" class="contact-mail">your-email@example.com &rarr;</a>
+        </div>
+        <div>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" class="contact-mail" style="font-size: 0.95rem;">LinkedIn Profile &rarr;</a>
+        </div>
+        <div>
+          <a href="assets/resume.pdf" download class="contact-mail" style="font-size: 0.95rem;">Download Selected Works (PDF) &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER V1 -->
+  <footer>
+    <p>&copy; 2026 Portfolio. All rights reserved.</p>
+    <p>Senior Art Direction &amp; Graphic Design</p>
+  </footer>
+
+  <!-- JS AUTOPLAY & PERFORMANCE OPTIMIZATION -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const videos = document.querySelectorAll('video');
+
+      videos.forEach(video => {
+        video.muted = true;
+        video.playsInline = true;
+
+        const playVideo = () => {
+          const promise = video.play();
+          if (promise !== undefined) {
+            promise.catch(() => {
+              // Fallback d'autoplay pour les navigateurs stricts
+              document.addEventListener('click', () => video.play(), { once: true });
+            });
+          }
+        };
+
+        playVideo();
+      });
+    });
+  </script>
 </body>
 </html>
