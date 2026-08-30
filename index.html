@@ -313,4 +313,374 @@
     .contact-h2 span { display: block; font-family: var(--f-jp); font-weight: 300; font-style: normal; font-size: clamp(1.1rem, 2vw, 1.8rem); color: var(--mint); margin-top: 1rem; letter-spacing: .15em; }
 
     .contact-body { display: flex; flex-direction: column; gap: 1.8rem; }
-    .contact-intro
+    .contact-intro { font-family: var(--f-ser); font-size: 1rem; font-style: italic; color: rgba(255,240,210,.75); line-height: 1.85; }
+
+    .contact-langs { display: flex; gap: .6rem; flex-wrap: wrap; }
+    .lang-tag { font-size: .58rem; letter-spacing: .2em; text-transform: uppercase; border: 1px solid rgba(255,240,210,.18); padding: .3rem .75rem; color: rgba(255,240,210,.4); }
+    .lang-tag.on { border-color: var(--mint); color: var(--mint); }
+
+    .contact-jp { font-family: var(--f-jp); font-size: .85rem; font-weight: 300; letter-spacing: .15em; color: var(--mint); opacity: .9; line-height: 1.8; }
+
+    .contact-mail { display: inline-block; font-family: var(--f-disp); font-size: clamp(1.1rem, 2vw, 1.5rem); font-weight: 400; color: var(--peach); text-decoration: none; border-bottom: 1px solid rgba(255,240,210,.25); padding-bottom: .25rem; transition: color .3s, border-color .3s; }
+    .contact-mail:hover { color: var(--pink); border-color: var(--pink); }
+
+    footer { background: var(--plum); padding: 1.8rem clamp(2rem, 7vw, 5rem); display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 2; }
+    .f-copy { font-size: .6rem; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,240,210,.4); }
+    .f-jp { font-family: var(--f-jp); font-size: .58rem; font-weight: 200; letter-spacing: .3em; color: var(--mint); opacity: .5; }
+
+    @media (max-width: 900px) {
+      body::before { left: 1rem; }
+      nav { flex-direction: column; align-items: flex-start; gap: 1rem; padding: 1.8rem 1.5rem 1rem 2rem; }
+      .logo { position: relative; margin-bottom: .5rem; }
+      .nav-links { margin-left: 0; gap: 1.2rem; }
+      .nav-links a { font-size: .58rem; }
+      
+      #hero { padding: 1rem 1.5rem 2rem 2rem; min-height: auto; }
+      .hero-job-title { font-size: 1.5rem; margin-bottom: 1rem; }
+      .hero-h1 { font-size: clamp(2.8rem, 10vw, 4.5rem); }
+      .hero-foot { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      .hero-scroll { display: none; }
+
+      #about { grid-template-columns: 1fr; gap: 1.5rem; padding: 4rem 1.5rem 4rem 2rem; }
+      .work-intro-bar { grid-template-columns: 1fr; gap: 1rem; padding: 4rem 1.5rem 2rem 2rem; }
+      .project { grid-template-columns: 1fr; gap: 2rem; padding: 4rem 1.5rem 4rem 2rem; }
+      
+      .media-grid.grid-2, .media-grid.grid-3 { grid-template-columns: 1fr; }
+      .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+      #contact { padding: 5rem 1.5rem 5rem 2rem; }
+      footer { padding: 1.5rem 1.5rem 1.5rem 2rem; flex-direction: column; gap: .8rem; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
+
+  <nav>
+    <a href="#" class="logo">
+      <span class="logo-en">Rina Benamar</span>
+      <span class="logo-jp">リナ・ベナマール</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#work">Projects</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Connect</a></li>
+    </ul>
+  </nav>
+
+  <section id="hero">
+    <div class="hero-bg-jp" aria-hidden="true">
+      <span>美</span>
+      <span>学</span>
+      <span>世</span>
+      <span>界</span>
+    </div>
+    
+    <div class="hero-content">
+      <h2 class="hero-job-title">Multidisciplinary Art Director &amp; Brand Architect</h2>
+      
+      <h1 class="hero-h1">
+        Building<br>
+        <span class="highlight-pink">worlds.</span><br>
+        <span class="highlight-olive">not just</span><br>
+        visuals.
+      </h1>
+
+      <p class="hero-tagline">
+        Orchestrating visual universes at the intersection of avant-garde narrative, spatial harmony, and organic luxury.
+      </p>
+    </div>
+
+    <div class="hero-foot">
+      <div>
+        <div class="hero-location">Based in Europe</div>
+        <div class="hero-avail">Open for Relocation to Japan &amp; Worldwide Projects</div>
+      </div>
+      <div class="hero-scroll">Scroll &darr;</div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="section-label">About / 経歴・概要</div>
+    <div>
+      <h2 class="about-h2">I construct visual worlds <br>with <em>obsessive intention</em>.</h2>
+      
+      <div class="about-body">
+        <p>
+          I'm an Art Director who gets genuinely excited by things that usually get overlooked—the weight of paper, the quiet rhythm between text blocks, or how lighting in a 3D environment changes the emotional tone of a brand. I don't believe in generic branding or template-driven design.
+        </p>
+        
+        <div class="about-highlight">
+          "I like combining raw energy with strict structural precision. It’s about creating work that feels alive, refined, and impossible to scroll past."
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="work-intro-bar">
+      <div class="section-label">Selected Works</div>
+      <h2 class="work-title">Projects</h2>
+    </div>
+
+    <article class="project">
+      <div class="section-label">01</div>
+      <div>
+        <p class="proj-client">Editorial Design &amp; Fine Art Curation</p>
+        <h3 class="proj-name">Selma Feriani Gallery</h3>
+
+        <div class="proj-tags">
+          <span class="tag">400+ Page Monograph</span>
+          <span class="tag">Grid Systems</span>
+          <span class="tag">Exhibition Pamphlets</span>
+          <span class="tag">Typography</span>
+        </div>
+
+        <p class="proj-brief">Designed exhibition pamphlets and an extensive 400+ page fine art artist monograph showcasing intricate tapestry artworks. Managed complex text/image layout systems.</p>
+        <p class="proj-concept"><strong>Key Impact:</strong> Applied high-end editorial grid systems and typography to elevate contemporary textile art for international gallery curation.</p>
+      </div>
+      
+      <div class="media-grid grid-2">
+        <div class="media-card"><img src="https://rinaffff.github.io/rina-portfoliov1/assets/sfg_b_2.png" class="crop-top-2px" alt="Selma Feriani Gallery 1" loading="lazy"></div>
+        <div class="media-card"><img src="https://rinaffff.github.io/rina-portfoliov1/assets/sfg_b_3.png" alt="Selma Feriani Gallery 2" loading="lazy"></div>
+        <div class="media-card"><img src="https://rinaffff.github.io/rina-portfoliov1/assets/sfg_m.png" class="crop-top-bottom-2px" alt="Selma Feriani Monograph 1" loading="lazy"></div>
+        <div class="media-card"><img src="https://rinaffff.github.io/rina-portfoliov1/assets/sfg_m2.png" alt="Selma Feriani Monograph 2" loading="lazy"></div>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="section-label">02</div>
+      <div>
+        <p class="proj-client">Brand Identity Framework</p>
+        <h3 class="proj-name">House of Goddesses</h3>
+
+        <div class="proj-tags">
+          <span class="tag">Brand Guidelines</span>
+          <span class="tag">Launch Strategy</span>
+          <span class="tag">Campaign Direction</span>
+          <span class="tag">Graphic Collateral</span>
+        </div>
+
+        <p class="proj-brief">Engineered the official visual identity framework (charte graphique) and campaign launch strategy. Continued asset direction for video productions and bespoke graphic collateral.</p>
+        <p class="proj-concept"><strong>Key Impact:</strong> Formulated an extensible brand guideline system ensuring consistent visual authority across digital and physical media.</p>
+      </div>
+      
+      <div class="media-grid grid-3">
+        <div class="media-card"><img src="https://rinaffff.github.io/rina-portfoliov1/assets/hog_logo_1.png" alt="House of Goddesses Logo 1" loading="lazy"></div>
+        <div class="media-card"><img src="https://rinaffff.github.io/rina-portfoliov1/assets/hog_logo_2.png" alt="House of Goddesses Logo 2" loading="lazy"></div>
+        <div class="media-card"><img src="https://rinaffff.github.io/rina-portfoliov1/assets/hog_design_1.jpg" alt="House of Goddesses Editorial 1" loading="lazy"></div>
+        <div class="media-card"><img src="https://rinaffff.github.io/rina-portfoliov1/assets/hog_design_2.jpg" alt="House of Goddesses Editorial 2" loading="lazy"></div>
+        <div class="media-card"><img src="https://rinaffff.github.io/rina-portfoliov1/assets/hog_design_3.jpg" alt="House of Goddesses Editorial 3" loading="lazy"></div>
+        <div class="media-card"><img src="https://rinaffff.github.io/rina-portfoliov1/assets/hog_design_4.jpg" alt="House of Goddesses Editorial 4" loading="lazy"></div>
+        <div class="media-card"><video autoplay loop muted playsinline webkit-playsinline preload="metadata"><source src="https://rinaffff.github.io/rina-portfoliov1/assets/hog_vid_1.mp4" type="video/mp4"></video></div>
+        <div class="media-card"><video autoplay loop muted playsinline webkit-playsinline preload="metadata"><source src="https://rinaffff.github.io/rina-portfoliov1/assets/hog_vid_2.mp4" type="video/mp4"></video></div>
+        <div class="media-card"><video autoplay loop muted playsinline webkit-playsinline preload="metadata"><source src="https://rinaffff.github.io/rina-portfoliov1/assets/hog_vid_3.mp4" type="video/mp4"></video></div>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="section-label">03</div>
+      <div>
+        <p class="proj-client">Music Video &amp; World-Building</p>
+        <h3 class="proj-name">Southtown Rage</h3>
+
+        <div class="proj-tags">
+          <span class="tag">Creative Producing</span>
+          <span class="tag">Shot Lists &amp; Call Sheets</span>
+          <span class="tag">On-Set Art Direction</span>
+          <span class="tag">Post-Production</span>
+        </div>
+
+        <p class="proj-brief">Built a complete graphic and visual universe for Fijo's album release. Handled production prep, daily shot schedules, videographer direction, and post-production supervision across 3 music video shoots.</p>
+        <p class="proj-concept"><strong>Key Impact:</strong> Seamlessly aligned cinematic visuals with musical narrative through strict on-set execution and post-production oversight.</p>
+      </div>
+      
+      <div class="media-grid grid-2">
+        <div class="media-card"><img src="https://rinaffff.github.io/rina-portfoliov1/assets/st_d_2.png" class="crop-left-2px" alt="Southtown Still 2" loading="lazy"></div>
+        <div class="media-card"><img src="https://rinaffff.github.io/rina-portfoliov1/assets/st_d_3.png" alt="Southtown Still 3" loading="lazy"></div>
+        <div class="media-card"><img src="https://rinaffff.github.io/rina-portfoliov1/assets/southtown_tshirts.png" alt="Southtown T-Shirts Design" loading="lazy"></div>
+        <div class="media-card"><img src="https://rinaffff.github.io/rina-portfoliov1/assets/st_d_7.png" alt="Southtown Still 7" loading="lazy"></div>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="section-label">04</div>
+      <div>
+        <p class="proj-client">3D Interior &amp; Visual Identity</p>
+        <h3 class="proj-name">Buck n Brew</h3>
+
+        <div class="proj-tags">
+          <span class="tag">Logo Design</span>
+          <span class="tag">Color System</span>
+          <span class="tag">3D Spatial Concept</span>
+          <span class="tag">Brand Strategy</span>
+        </div>
+
+        <p class="proj-brief">Designed the complete brand universe from logo to color palette. Developed a full 3D spatial concept in SketchUp to visualize a warm, British book-nook meets Mediterranean home warmth aesthetic.</p>
+        <p class="proj-concept"><strong>Key Impact:</strong> Bridged traditional British charm with Mediterranean hospitality into a cohesive visual identity and spatial experience.</p>
+      </div>
+      
+      <div class="media-grid grid-2">
+        <div class="media-card"><img src="https://rinaffff.github.io/rina-portfoliov1/assets/BB-1.jpg" alt="Buck n Brew View 1" loading="lazy"></div>
+        <div class="media-card"><img src="https://rinaffff.github.io/rina-portfoliov1/assets/BB-2.jpg" alt="Buck n Brew View 2" loading="lazy"></div>
+        <div class="media-card"><img src="https://rinaffff.github.io/rina-portfoliov1/assets/BB-3.jpg" alt="Buck n Brew View 3" loading="lazy"></div>
+        <div class="media-card"><img src="https://rinaffff.github.io/rina-portfoliov1/assets/BB-4.jpg" alt="Buck n Brew View 4" loading="lazy"></div>
+        <div class="media-card"><img src="https://rinaffff.github.io/rina-portfoliov1/assets/BB-5.jpg" alt="Buck n Brew View 5" loading="lazy"></div>
+        <div class="media-card"><img src="https://rinaffff.github.io/rina-portfoliov1/assets/BB-6.jpg" alt="Buck n Brew View 6" loading="lazy"></div>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="section-label">05</div>
+      <div>
+        <p class="proj-client">Visual Strategy &amp; Production</p>
+        <h3 class="proj-name">Pupchen</h3>
+        
+        <div class="proj-tags">
+          <span class="tag">Creative Direction</span>
+          <span class="tag">Brand Strategy</span>
+          <span class="tag">Shoot Production</span>
+          <span class="tag">Social Marketing</span>
+        </div>
+
+        <p class="proj-brief">Full oversight of the brand's visual communication strategy. Executed end-to-end campaign direction, photo/video shoot scheduling, and content rollout.</p>
+        <p class="proj-concept"><strong>Key Impact:</strong> Established a cohesive brand narrative and content strategy, orchestrating all post-strategy execution and marketing presence.</p>
+      </div>
+      
+      <div class="media-grid grid-2 pupchen-grid">
+        <div class="media-card">
+          <video autoplay loop muted playsinline webkit-playsinline preload="metadata">
+            <source src="https://rinaffff.github.io/rina-portfoliov1/assets/pupchen.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="media-card">
+          <video autoplay loop muted playsinline webkit-playsinline preload="metadata">
+            <source src="https://rinaffff.github.io/rina-portfoliov1/assets/pup_content_1.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="media-card"><img src="https://rinaffff.github.io/rina-portfoliov1/assets/pup_dejeuner_1.jpg" alt="Pupchen Dejeuner 1" loading="lazy"></div>
+        <div class="media-card">
+          <video autoplay loop muted playsinline webkit-playsinline preload="metadata">
+            <source src="https://rinaffff.github.io/rina-portfoliov1/assets/pup_dejeuner_2.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="media-card">
+          <video autoplay loop muted playsinline webkit-playsinline preload="metadata">
+            <source src="https://rinaffff.github.io/rina-portfoliov1/assets/pup_launching_1.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="media-card">
+          <video autoplay loop muted playsinline webkit-playsinline preload="metadata">
+            <source src="https://rinaffff.github.io/rina-portfoliov1/assets/pup_launching_2.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="media-card span-full">
+          <video autoplay loop muted playsinline webkit-playsinline preload="metadata">
+            <source src="https://rinaffff.github.io/rina-portfoliov1/assets/pup_launching_3.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <section id="contact">
+    <div class="contact-inner">
+      <div>
+        <h2 class="contact-h2">
+          Let's <em>connect.</em>
+          <span>お問い合わせ・ご連絡</span>
+        </h2>
+      </div>
+      <div class="contact-body">
+        <p class="contact-intro">
+          Currently based in Europe — Open to creative roles, design studio positions, &amp; full relocation to Japan. Always open to collaborative art direction and spatial concept discussions.
+        </p>
+        
+        <div class="contact-langs">
+          <span class="lang-tag on">Arabic — Native</span>
+          <span class="lang-tag on">French — Native / Bilingual</span>
+          <span class="lang-tag on">English — Full Professional</span>
+          <span class="lang-tag">Japanese — Basic Professional</span>
+        </div>
+
+        <p class="contact-jp">ご一緒にお仕事ができますことを、心より楽しみにしております。</p>
+
+        <div>
+          <a href="mailto:your-email@example.com" class="contact-mail">your-email@example.com &rarr;</a>
+        </div>
+        <div>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" class="contact-mail" style="font-size: 0.95rem;">LinkedIn Profile &rarr;</a>
+        </div>
+        <div>
+          <a href="assets/resume.pdf" download class="contact-mail" style="font-size: 0.95rem;">Download Resume (PDF) &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span class="f-copy">&copy; 2026 Rina Benamar. All rights reserved.</span>
+    <span class="f-jp">ポートフォリオ / アートディレクション</span>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const cursor = document.getElementById('cursor');
+      const ring = document.getElementById('cursor-ring');
+      let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+
+      if (window.matchMedia('(pointer: fine)').matches) {
+        document.addEventListener('mousemove', (e) => {
+          mouseX = e.clientX; mouseY = e.clientY;
+          if (cursor) {
+            cursor.style.left = `${mouseX}px`;
+            cursor.style.top = `${mouseY}px`;
+          }
+        });
+
+        function renderRing() {
+          ringX += (mouseX - ringX) * 0.15;
+          ringY += (mouseY - ringY) * 0.15;
+          if (ring) {
+            ring.style.left = `${ringX}px`;
+            ring.style.top = `${ringY}px`;
+          }
+          requestAnimationFrame(renderRing);
+        }
+        renderRing();
+
+        const hoverables = document.querySelectorAll('a, button, .project, .tag, video');
+        hoverables.forEach(el => {
+          el.addEventListener('mouseenter', () => cursor?.classList.add('big'));
+          el.addEventListener('mouseleave', () => cursor?.classList.remove('big'));
+        });
+      }
+
+      const allVideos = document.querySelectorAll('video');
+      
+      const forcePlayAllVideos = () => {
+        allVideos.forEach(vid => {
+          vid.muted = true;
+          vid.setAttribute('muted', '');
+          vid.setAttribute('playsinline', '');
+          vid.setAttribute('webkit-playsinline', '');
+          
+          const playPromise = vid.play();
+          if (playPromise !== undefined) {
+            playPromise.catch(error => {
+              console.log('Autoplay deferred until interaction:', error);
+            });
+          }
+        });
+      };
+
+      forcePlayAllVideos();
+
+      ['click', 'touchstart', 'scroll'].forEach(evt => {
+        window.addEventListener(evt, forcePlayAllVideos, { once: true });
+      });
+    });
+  </script>
+</body>
+</html>
