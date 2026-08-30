@@ -86,7 +86,7 @@
       }
     }
 
-    /* NAV: Centered Name, Top Right Links */
+    /* NAV: Name Left-Aligned */
     nav {
       padding: 2.5rem clamp(2rem, 7vw, 5rem) 1rem clamp(2.5rem, 8vw, 6rem);
       display: flex;
@@ -99,12 +99,9 @@
       text-decoration: none;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      text-align: center;
+      align-items: flex-start;
+      text-align: left;
       line-height: 1.25;
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
     }
     .logo-en { 
       font-family: var(--f-disp); 
@@ -116,11 +113,11 @@
     }
     .logo-jp { 
       font-family: var(--f-jp); 
-      font-size: .6rem; 
-      font-weight: 200; 
+      font-size: .65rem; 
+      font-weight: 300; 
       letter-spacing: .35em; 
       color: var(--plum-soft); 
-      opacity: .6; 
+      opacity: .75; 
       margin-top: .2rem;
     }
 
@@ -142,23 +139,28 @@
       position: relative; overflow: hidden;
     }
 
-    /* Downscaled Kanji Watermark */
+    /* Restored, Enlarged & Slightly More Opaque Kanji Watermark (美学 & 世界) */
     .hero-bg-jp {
-      position: absolute; right: 2vw; top: 22%;
+      position: absolute; right: 2vw; top: 12%;
       font-family: var(--f-jp);
-      font-size: clamp(10rem, 22vw, 22rem);
-      font-weight: 200; color: rgba(91,30,50,.035);
-      pointer-events: none; line-height: 1; user-select: none;
+      font-size: clamp(14rem, 28vw, 32rem);
+      font-weight: 200; 
+      color: rgba(91, 30, 50, 0.06);
+      pointer-events: none; 
+      line-height: 0.85; 
+      user-select: none;
       z-index: 1;
+      text-align: right;
+      writing-mode: vertical-rl;
     }
 
     .hero-content {
       position: relative; z-index: 2;
-      max-width: 900px;
+      max-width: 1100px;
       margin-top: 1rem;
     }
 
-    /* Restored Handwritten Style for Job Title */
+    /* Handwritten Style for Job Title */
     .hero-job-title {
       font-family: var(--f-hand);
       font-size: clamp(1.8rem, 3.2vw, 2.6rem);
@@ -168,11 +170,14 @@
       line-height: 1.1;
     }
 
+    /* Scaled Up Hero Headline */
     .hero-h1 {
       font-family: var(--f-disp);
-      font-size: clamp(2.4rem, 5.8vw, 5.2rem);
-      font-weight: 400; line-height: 1.02; letter-spacing: -.02em;
-      margin-bottom: 2.2rem;
+      font-size: clamp(3.8rem, 8vw, 7.5rem);
+      font-weight: 400; 
+      line-height: 0.95; 
+      letter-spacing: -.03em;
+      margin-bottom: 2.5rem;
       color: var(--espresso);
     }
 
@@ -252,12 +257,11 @@
     .proj-brief { font-size: .95rem; color: var(--espresso); line-height: 1.85; margin-bottom: 1.4rem; }
     .proj-concept { font-size: .85rem; color: var(--plum-soft); line-height: 1.75; padding-left: 1rem; border-left: 2px solid var(--pink); }
 
-    /* SEAMLESS MEDIA GRID - NO BACKGROUNDS, NO CONTOURS, CLEAN INTEGRATION */
+    /* SEAMLESS MEDIA GRID - NO BACKGROUNDS, NO CONTOURS */
     .media-grid { display: grid; gap: 1.8rem; width: 100%; align-items: start; }
     .media-grid.grid-1 { grid-template-columns: 1fr; }
     .media-grid.grid-2 { grid-template-columns: repeat(2, 1fr); }
     .media-grid.grid-3 { grid-template-columns: repeat(3, 1fr); }
-    .media-grid.grid-4 { grid-template-columns: repeat(4, 1fr); }
 
     .media-card {
       position: relative;
@@ -275,6 +279,14 @@
     }
 
     .media-card.span-full { grid-column: 1 / -1; }
+
+    /* Specific Asset Crops */
+    .crop-top-2px {
+      clip-path: inset(2px 0 0 0);
+    }
+    .crop-top-bottom-2px {
+      clip-path: inset(2px 0 2px 0);
+    }
 
     /* CONTACT SECTION */
     #contact {
@@ -313,13 +325,14 @@
     /* RESPONSIVE LAYOUT */
     @media (max-width: 900px) {
       body::before { left: 1rem; }
-      nav { flex-direction: column; align-items: center; gap: 1rem; padding: 1.8rem 1.5rem 1rem 2rem; }
-      .logo { position: relative; left: 0; transform: none; margin-bottom: .5rem; }
+      nav { flex-direction: column; align-items: flex-start; gap: 1rem; padding: 1.8rem 1.5rem 1rem 2rem; }
+      .logo { position: relative; margin-bottom: .5rem; }
       .nav-links { margin-left: 0; gap: 1.2rem; }
       .nav-links a { font-size: .58rem; }
       
       #hero { padding: 1rem 1.5rem 2rem 2rem; min-height: auto; }
       .hero-job-title { font-size: 1.5rem; margin-bottom: 1rem; }
+      .hero-h1 { font-size: clamp(2.8rem, 10vw, 4.5rem); }
       .hero-foot { flex-direction: column; align-items: flex-start; gap: 1rem; }
       .hero-scroll { display: none; }
 
@@ -327,7 +340,7 @@
       .work-intro-bar { grid-template-columns: 1fr; gap: 1rem; padding: 4rem 1.5rem 2rem 2rem; }
       .project { grid-template-columns: 1fr; gap: 2rem; padding: 4rem 1.5rem 4rem 2rem; }
       
-      .media-grid.grid-2, .media-grid.grid-3, .media-grid.grid-4 { grid-template-columns: 1fr; }
+      .media-grid.grid-2, .media-grid.grid-3 { grid-template-columns: 1fr; }
       .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
       #contact { padding: 5rem 1.5rem 5rem 2rem; }
       footer { padding: 1.5rem 1.5rem 1.5rem 2rem; flex-direction: column; gap: .8rem; align-items: flex-start; }
@@ -352,7 +365,7 @@
   </nav>
 
   <section id="hero">
-    <div class="hero-bg-jp" aria-hidden="true">世界</div>
+    <div class="hero-bg-jp" aria-hidden="true">美学<br>世界</div>
     
     <div class="hero-content">
       <h2 class="hero-job-title">Multidisciplinary Art Director &amp; Brand Architect</h2>
@@ -419,9 +432,9 @@
       </div>
       
       <div class="media-grid grid-2">
-        <div class="media-card"><img src="https://rinaffff.github.io/rina-portfoliov1/assets/sfg_b_2.png" alt="Selma Feriani Gallery 1" loading="lazy"></div>
+        <div class="media-card"><img src="https://rinaffff.github.io/rina-portfoliov1/assets/sfg_b_2.png" class="crop-top-2px" alt="Selma Feriani Gallery 1" loading="lazy"></div>
         <div class="media-card"><img src="https://rinaffff.github.io/rina-portfoliov1/assets/sfg_b_3.png" alt="Selma Feriani Gallery 2" loading="lazy"></div>
-        <div class="media-card"><img src="https://rinaffff.github.io/rina-portfoliov1/assets/sfg_m.png" alt="Selma Feriani Monograph 1" loading="lazy"></div>
+        <div class="media-card"><img src="https://rinaffff.github.io/rina-portfoliov1/assets/sfg_m.png" class="crop-top-bottom-2px" alt="Selma Feriani Monograph 1" loading="lazy"></div>
         <div class="media-card"><img src="https://rinaffff.github.io/rina-portfoliov1/assets/sfg_m2.png" alt="Selma Feriani Monograph 2" loading="lazy"></div>
       </div>
     </article>
@@ -474,14 +487,10 @@
       </div>
       
       <div class="media-grid grid-2">
-        <div class="media-card span-full"><video autoplay loop muted playsinline preload="auto"><source src="https://rinaffff.github.io/rina-portfoliov1/assets/southtown.mp4" type="video/mp4"></video></div>
-        <div class="media-card"><img src="https://rinaffff.github.io/rina-portfoliov1/assets/st_presentation.png" alt="Southtown Presentation" loading="lazy"></div>
         <div class="media-card"><img src="https://rinaffff.github.io/rina-portfoliov1/assets/southtown_tshirts.png" alt="Southtown T-Shirts Design" loading="lazy"></div>
-        <div class="media-card"><img src="https://rinaffff.github.io/rina-portfoliov1/assets/st_d_1.png" alt="Southtown Still 1" loading="lazy"></div>
         <div class="media-card"><img src="https://rinaffff.github.io/rina-portfoliov1/assets/st_d_2.png" alt="Southtown Still 2" loading="lazy"></div>
         <div class="media-card"><img src="https://rinaffff.github.io/rina-portfoliov1/assets/st_d_3.png" alt="Southtown Still 3" loading="lazy"></div>
-        <div class="media-card"><img src="https://rinaffff.github.io/rina-portfoliov1/assets/st_d_5.png" alt="Southtown Still 5" loading="lazy"></div>
-        <div class="media-card span-full"><img src="https://rinaffff.github.io/rina-portfoliov1/assets/st_d_7.png" alt="Southtown Still 7" loading="lazy"></div>
+        <div class="media-card"><img src="https://rinaffff.github.io/rina-portfoliov1/assets/st_d_7.png" alt="Southtown Still 7" loading="lazy"></div>
       </div>
     </article>
 
@@ -502,7 +511,7 @@
         <p class="proj-concept"><strong>Key Impact:</strong> Bridged traditional British charm with Mediterranean hospitality into a cohesive visual identity and spatial experience.</p>
       </div>
       
-      <div class="media-grid grid-3">
+      <div class="media-grid grid-2">
         <div class="media-card"><img src="https://rinaffff.github.io/rina-portfoliov1/assets/BB-1.jpg" alt="Buck n Brew View 1" loading="lazy"></div>
         <div class="media-card"><img src="https://rinaffff.github.io/rina-portfoliov1/assets/BB-2.jpg" alt="Buck n Brew View 2" loading="lazy"></div>
         <div class="media-card"><img src="https://rinaffff.github.io/rina-portfoliov1/assets/BB-3.jpg" alt="Buck n Brew View 3" loading="lazy"></div>
@@ -516,7 +525,7 @@
       <div class="section-label">05</div>
       <div>
         <p class="proj-client">Visual Strategy &amp; Production</p>
-        <h3 class="proj-name">pupchen</h3>
+        <h3 class="proj-name">Pupchen</h3>
         
         <div class="proj-tags">
           <span class="tag">Creative Direction</span>
@@ -530,14 +539,37 @@
       </div>
       
       <div class="media-grid grid-2">
-        <div class="media-card"><video autoplay loop muted playsinline preload="auto"><source src="https://rinaffff.github.io/rina-portfoliov1/assets/pupchen.mp4" type="video/mp4"></video></div>
-        <div class="media-card"><video autoplay loop muted playsinline preload="auto"><source src="https://rinaffff.github.io/rina-portfoliov1/assets/pup_content_1.mp4" type="video/mp4"></video></div>
+        <div class="media-card">
+          <video autoplay loop muted playsinline webkit-playsinline preload="auto" poster="https://rinaffff.github.io/rina-portfoliov1/assets/pup_dejeuner_1.jpg">
+            <source src="https://rinaffff.github.io/rina-portfoliov1/assets/pupchen.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="media-card">
+          <video autoplay loop muted playsinline webkit-playsinline preload="auto">
+            <source src="https://rinaffff.github.io/rina-portfoliov1/assets/pup_content_1.mp4" type="video/mp4">
+          </video>
+        </div>
         <div class="media-card"><img src="https://rinaffff.github.io/rina-portfoliov1/assets/pup_dejeuner_1.jpg" alt="Pupchen Dejeuner 1" loading="lazy"></div>
-        <div class="media-card"><video autoplay loop muted playsinline preload="auto"><source src="https://rinaffff.github.io/rina-portfoliov1/assets/pup_dejeuner_2.mp4" type="video/mp4"></video></div>
-        <div class="media-card"><img src="https://rinaffff.github.io/rina-portfoliov1/assets/pup_dejeuner_3.jpg" alt="Pupchen Dejeuner 3" loading="lazy"></div>
-        <div class="media-card"><video autoplay loop muted playsinline preload="auto"><source src="https://rinaffff.github.io/rina-portfoliov1/assets/pup_launching_1.mp4" type="video/mp4"></video></div>
-        <div class="media-card"><video autoplay loop muted playsinline preload="auto"><source src="https://rinaffff.github.io/rina-portfoliov1/assets/pup_launching_2.mp4" type="video/mp4"></video></div>
-        <div class="media-card"><video autoplay loop muted playsinline preload="auto"><source src="https://rinaffff.github.io/rina-portfoliov1/assets/pup_launching_3.mp4" type="video/mp4"></video></div>
+        <div class="media-card">
+          <video autoplay loop muted playsinline webkit-playsinline preload="auto">
+            <source src="https://rinaffff.github.io/rina-portfoliov1/assets/pup_dejeuner_2.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="media-card">
+          <video autoplay loop muted playsinline webkit-playsinline preload="auto">
+            <source src="https://rinaffff.github.io/rina-portfoliov1/assets/pup_launching_1.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="media-card">
+          <video autoplay loop muted playsinline webkit-playsinline preload="auto">
+            <source src="https://rinaffff.github.io/rina-portfoliov1/assets/pup_launching_2.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="media-card span-full">
+          <video autoplay loop muted playsinline webkit-playsinline preload="auto">
+            <source src="https://rinaffff.github.io/rina-portfoliov1/assets/pup_launching_3.mp4" type="video/mp4">
+          </video>
+        </div>
       </div>
     </article>
   </section>
@@ -552,86 +584,4 @@
       </div>
       <div class="contact-body">
         <p class="contact-intro">
-          Currently based in Europe — Open to creative roles, design studio positions, &amp; full relocation to Japan. Always open to collaborative art direction and spatial concept discussions.
-        </p>
-        
-        <div class="contact-langs">
-          <span class="lang-tag on">Arabic — Native</span>
-          <span class="lang-tag on">French — Native / Bilingual</span>
-          <span class="lang-tag on">English — Full Professional</span>
-          <span class="lang-tag">Japanese — Basic Professional</span>
-        </div>
-
-        <p class="contact-jp">ご一緒にお仕事ができますことを、心より楽しみにしております。</p>
-
-        <div>
-          <a href="mailto:your-email@example.com" class="contact-mail">your-email@example.com &rarr;</a>
-        </div>
-        <div>
-          <a href="https://linkedin.com" target="_blank" rel="noopener" class="contact-mail" style="font-size: 0.95rem;">LinkedIn Profile &rarr;</a>
-        </div>
-        <div>
-          <a href="assets/resume.pdf" download class="contact-mail" style="font-size: 0.95rem;">Download Resume (PDF) &rarr;</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <span class="f-copy">&copy; 2026 Rina Benamar. All rights reserved.</span>
-    <span class="f-jp">ポートフォリオ / アートディレクション</span>
-  </footer>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const cursor = document.getElementById('cursor');
-      const ring = document.getElementById('cursor-ring');
-      let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
-
-      if (window.matchMedia('(pointer: fine)').matches) {
-        document.addEventListener('mousemove', (e) => {
-          mouseX = e.clientX; mouseY = e.clientY;
-          if (cursor) {
-            cursor.style.left = `${mouseX}px`;
-            cursor.style.top = `${mouseY}px`;
-          }
-        });
-
-        function renderRing() {
-          ringX += (mouseX - ringX) * 0.15;
-          ringY += (mouseY - ringY) * 0.15;
-          if (ring) {
-            ring.style.left = `${ringX}px`;
-            ring.style.top = `${ringY}px`;
-          }
-          requestAnimationFrame(renderRing);
-        }
-        renderRing();
-
-        const hoverables = document.querySelectorAll('a, button, .project, .tag, video');
-        hoverables.forEach(el => {
-          el.addEventListener('mouseenter', () => cursor?.classList.add('big'));
-          el.addEventListener('mouseleave', () => cursor?.classList.remove('big'));
-        });
-      }
-
-      // Fallback autoplay for videos
-      const videos = document.querySelectorAll('video');
-      videos.forEach(video => {
-        video.muted = true;
-        video.playsInline = true;
-        const playVideo = () => {
-          const promise = video.play();
-          if (promise !== undefined) {
-            promise.catch(() => {
-              document.addEventListener('touchstart', () => video.play(), { once: true });
-              document.addEventListener('click', () => video.play(), { once: true });
-            });
-          }
-        };
-        playVideo();
-      });
-    });
-  </script>
-</body>
-</html>
+          Currently based in Europe — Open to creative roles, design studio positions, &amp; full relocation to Japan. Always open to
