@@ -131,23 +131,23 @@
     .nav-links a { font-size: .65rem; letter-spacing: .22em; text-transform: uppercase; text-decoration: none; color: var(--plum-soft); transition: color .3s; }
     .nav-links a:hover { color: var(--pink); }
 
-    /* GLOBAL KANJI BACKGROUND STREAM */
+    /* ENLARGED & HIGH-OPACITY KANJI BACKGROUND STREAM */
     .hero-bg-jp {
       position: absolute; 
-      right: 4vw; 
-      top: 120px;
+      right: 3vw; 
+      top: 80px;
       font-family: var(--f-jp);
-      font-size: clamp(7rem, 14vw, 16rem);
+      font-size: clamp(11rem, 20vw, 26rem);
       font-weight: 200; 
-      color: rgba(91, 30, 50, 0.055);
+      color: rgba(91, 30, 50, 0.12);
       pointer-events: none; 
-      line-height: 1.15; 
+      line-height: 0.95; 
       user-select: none;
       z-index: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 4.5rem;
+      gap: 1.2rem;
     }
 
     /* HERO SECTION */
@@ -266,7 +266,7 @@
 
     .media-card {
       position: relative;
-      background: rgba(53, 30, 40, 0.03);
+      background: transparent;
       border: none;
       box-shadow: none;
       width: 100%;
@@ -287,13 +287,9 @@
     .crop-top-bottom-2px { clip-path: inset(2px 0 2px 0); }
     .crop-left-2px { clip-path: inset(0 0 0 2px); }
 
-    /* Pupchen Unified Aspect Ratios & Alignment */
+    /* PUPCHEN GRID — MATCHING HOUSE OF GODDESSES SIZING & RATIOS */
     .pupchen-grid .media-card {
-      aspect-ratio: 4 / 5;
-      border-radius: 2px;
-    }
-    .pupchen-grid .media-card.span-full {
-      aspect-ratio: 16 / 9;
+      aspect-ratio: 9 / 16;
     }
 
     /* CONTACT SECTION */
@@ -343,7 +339,7 @@
       .hero-foot { flex-direction: column; align-items: flex-start; gap: 1rem; }
       .hero-scroll { display: none; }
 
-      .hero-bg-jp { right: 1vw; gap: 2rem; }
+      .hero-bg-jp { right: 1vw; gap: .5rem; }
 
       #about { grid-template-columns: 1fr; gap: 1.5rem; padding: 4rem 1.5rem 4rem 2rem; }
       .work-intro-bar { grid-template-columns: 1fr; gap: 1rem; padding: 4rem 1.5rem 2rem 2rem; }
@@ -552,19 +548,14 @@
         <p class="proj-concept"><strong>Key Impact:</strong> Established a cohesive brand narrative and content strategy, orchestrating all post-strategy execution and marketing presence.</p>
       </div>
       
-      <div class="media-grid grid-2 pupchen-grid">
-        <div class="media-card">
-          <video autoplay loop muted playsinline webkit-playsinline preload="metadata" poster="https://rinaffff.github.io/rina-portfoliov1/assets/pup_dejeuner_3.jpg">
-            <source src="https://rinaffff.github.io/rina-portfoliov1/assets/pupchen.mp4" type="video/mp4">
-            <img src="https://rinaffff.github.io/rina-portfoliov1/assets/pup_dejeuner_3.jpg" alt="Pupchen Asset 1" loading="lazy">
-          </video>
-        </div>
+      <div class="media-grid grid-3 pupchen-grid">
+        <div class="media-card"><img src="https://rinaffff.github.io/rina-portfoliov1/assets/pup_dejeuner_1.jpg" alt="Pupchen Dejeuner 1" loading="lazy"></div>
+        <div class="media-card"><img src="https://rinaffff.github.io/rina-portfoliov1/assets/pup_dejeuner_3.jpg" alt="Pupchen Dejeuner 3" loading="lazy"></div>
         <div class="media-card">
           <video autoplay loop muted playsinline webkit-playsinline preload="metadata">
             <source src="https://rinaffff.github.io/rina-portfoliov1/assets/pup_content_1.mp4" type="video/mp4">
           </video>
         </div>
-        <div class="media-card"><img src="https://rinaffff.github.io/rina-portfoliov1/assets/pup_dejeuner_1.jpg" alt="Pupchen Dejeuner 1" loading="lazy"></div>
         <div class="media-card">
           <video autoplay loop muted playsinline webkit-playsinline preload="metadata">
             <source src="https://rinaffff.github.io/rina-portfoliov1/assets/pup_dejeuner_2.mp4" type="video/mp4">
@@ -578,11 +569,6 @@
         <div class="media-card">
           <video autoplay loop muted playsinline webkit-playsinline preload="metadata">
             <source src="https://rinaffff.github.io/rina-portfoliov1/assets/pup_launching_2.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="media-card span-full">
-          <video autoplay loop muted playsinline webkit-playsinline preload="metadata">
-            <source src="https://rinaffff.github.io/rina-portfoliov1/assets/pup_launching_3.mp4" type="video/mp4">
           </video>
         </div>
       </div>
