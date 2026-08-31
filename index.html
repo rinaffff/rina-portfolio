@@ -131,29 +131,31 @@
     .nav-links a { font-size: .65rem; letter-spacing: .22em; text-transform: uppercase; text-decoration: none; color: var(--plum-soft); transition: color .3s; }
     .nav-links a:hover { color: var(--pink); }
 
+    /* GLOBAL KANJI BACKGROUND STREAM */
+    .hero-bg-jp {
+      position: absolute; 
+      right: 4vw; 
+      top: 120px;
+      font-family: var(--f-jp);
+      font-size: clamp(7rem, 14vw, 16rem);
+      font-weight: 200; 
+      color: rgba(91, 30, 50, 0.055);
+      pointer-events: none; 
+      line-height: 1.15; 
+      user-select: none;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4.5rem;
+    }
+
     /* HERO SECTION */
     #hero {
       min-height: 85vh;
       padding: 1.5rem clamp(2rem, 7vw, 5rem) 3rem clamp(2.5rem, 8vw, 6rem);
       display: flex; flex-direction: column; justify-content: space-between;
-      position: relative; overflow: hidden;
-    }
-
-    /* Vertical Stacked Background Kanji */
-    .hero-bg-jp {
-      position: absolute; right: 3vw; top: 5%;
-      font-family: var(--f-jp);
-      font-size: clamp(12rem, 22vw, 26rem);
-      font-weight: 200; 
-      color: rgba(91, 30, 50, 0.06);
-      pointer-events: none; 
-      line-height: 0.9; 
-      user-select: none;
-      z-index: 1;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      position: relative;
     }
 
     .hero-content {
@@ -264,7 +266,7 @@
 
     .media-card {
       position: relative;
-      background: transparent;
+      background: rgba(53, 30, 40, 0.03);
       border: none;
       box-shadow: none;
       width: 100%;
@@ -285,7 +287,7 @@
     .crop-top-bottom-2px { clip-path: inset(2px 0 2px 0); }
     .crop-left-2px { clip-path: inset(0 0 0 2px); }
 
-    /* Pupchen Balanced Aspect Ratio Styles */
+    /* Pupchen Unified Aspect Ratios & Alignment */
     .pupchen-grid .media-card {
       aspect-ratio: 4 / 5;
       border-radius: 2px;
@@ -341,6 +343,8 @@
       .hero-foot { flex-direction: column; align-items: flex-start; gap: 1rem; }
       .hero-scroll { display: none; }
 
+      .hero-bg-jp { right: 1vw; gap: 2rem; }
+
       #about { grid-template-columns: 1fr; gap: 1.5rem; padding: 4rem 1.5rem 4rem 2rem; }
       .work-intro-bar { grid-template-columns: 1fr; gap: 1rem; padding: 4rem 1.5rem 2rem 2rem; }
       .project { grid-template-columns: 1fr; gap: 2rem; padding: 4rem 1.5rem 4rem 2rem; }
@@ -357,6 +361,13 @@
   <div id="cursor"></div>
   <div id="cursor-ring"></div>
 
+  <div class="hero-bg-jp" aria-hidden="true">
+    <span>美</span>
+    <span>学</span>
+    <span>世</span>
+    <span>界</span>
+  </div>
+
   <nav>
     <a href="#" class="logo">
       <span class="logo-en">Rina Benamar</span>
@@ -370,13 +381,6 @@
   </nav>
 
   <section id="hero">
-    <div class="hero-bg-jp" aria-hidden="true">
-      <span>美</span>
-      <span>学</span>
-      <span>世</span>
-      <span>界</span>
-    </div>
-    
     <div class="hero-content">
       <h2 class="hero-job-title">Multidisciplinary Art Director &amp; Brand Architect</h2>
       
@@ -550,8 +554,9 @@
       
       <div class="media-grid grid-2 pupchen-grid">
         <div class="media-card">
-          <video autoplay loop muted playsinline webkit-playsinline preload="metadata">
+          <video autoplay loop muted playsinline webkit-playsinline preload="metadata" poster="https://rinaffff.github.io/rina-portfoliov1/assets/pup_dejeuner_3.jpg">
             <source src="https://rinaffff.github.io/rina-portfoliov1/assets/pupchen.mp4" type="video/mp4">
+            <img src="https://rinaffff.github.io/rina-portfoliov1/assets/pup_dejeuner_3.jpg" alt="Pupchen Asset 1" loading="lazy">
           </video>
         </div>
         <div class="media-card">
